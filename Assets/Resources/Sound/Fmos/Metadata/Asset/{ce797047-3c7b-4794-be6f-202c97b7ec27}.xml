@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{ce797047-3c7b-4794-be6f-202c97b7ec27}">
+		<property name="assetPath">
+			<value>Resources/Materials/Physics Materials/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{af707b61-2d40-4699-afc9-bceaf0683e23}</destination>
+		</relationship>
+	</object>
+</objects>

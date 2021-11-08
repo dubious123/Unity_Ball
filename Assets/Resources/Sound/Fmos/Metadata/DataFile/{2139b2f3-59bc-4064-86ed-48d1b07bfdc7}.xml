@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{2139b2f3-59bc-4064-86ed-48d1b07bfdc7}">
+		<property name="assetPath">
+			<value>Resources/Prefabs/UI/Arrow.png</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{af707b61-2d40-4699-afc9-bceaf0683e23}</destination>
+		</relationship>
+	</object>
+</objects>

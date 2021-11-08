@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{a8c05d0e-54ab-4b6e-b58c-15e43d8677f1}">
+		<property name="assetPath">
+			<value>Resources/Tile Images/killer2.png.meta</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{af707b61-2d40-4699-afc9-bceaf0683e23}</destination>
+		</relationship>
+	</object>
+</objects>

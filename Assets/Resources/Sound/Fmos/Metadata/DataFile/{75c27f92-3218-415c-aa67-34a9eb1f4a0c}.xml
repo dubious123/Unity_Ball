@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{75c27f92-3218-415c-aa67-34a9eb1f4a0c}">
+		<property name="assetPath">
+			<value>Resources/Sound/Fmos/Metadata/SnapshotGroup.meta</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{af707b61-2d40-4699-afc9-bceaf0683e23}</destination>
+		</relationship>
+	</object>
+</objects>

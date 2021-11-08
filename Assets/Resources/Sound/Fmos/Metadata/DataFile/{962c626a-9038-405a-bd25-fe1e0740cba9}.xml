@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{962c626a-9038-405a-bd25-fe1e0740cba9}">
+		<property name="assetPath">
+			<value>Resources/Prefabs/Tiles/DynamicTiles.prefab</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{af707b61-2d40-4699-afc9-bceaf0683e23}</destination>
+		</relationship>
+	</object>
+</objects>

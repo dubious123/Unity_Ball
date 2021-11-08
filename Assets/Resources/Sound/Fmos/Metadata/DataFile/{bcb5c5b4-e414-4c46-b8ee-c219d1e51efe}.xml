@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{bcb5c5b4-e414-4c46-b8ee-c219d1e51efe}">
+		<property name="assetPath">
+			<value>Resources/Sprites/DeadEffect/Anim/FX001_01.controller</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{af707b61-2d40-4699-afc9-bceaf0683e23}</destination>
+		</relationship>
+	</object>
+</objects>

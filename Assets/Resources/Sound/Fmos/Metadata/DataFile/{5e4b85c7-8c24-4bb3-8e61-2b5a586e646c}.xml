@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{5e4b85c7-8c24-4bb3-8e61-2b5a586e646c}">
+		<property name="assetPath">
+			<value>Resources/Prefabs/Tiles/CoinTiles.prefab</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{af707b61-2d40-4699-afc9-bceaf0683e23}</destination>
+		</relationship>
+	</object>
+</objects>

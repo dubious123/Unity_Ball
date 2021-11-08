@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{b84d95a5-e974-4a24-be16-f950f38e77d9}">
+		<property name="assetPath">
+			<value>Resources/Materials/Physics Materials/BounceBall.physicsMaterial2D.meta</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{af707b61-2d40-4699-afc9-bceaf0683e23}</destination>
+		</relationship>
+	</object>
+</objects>

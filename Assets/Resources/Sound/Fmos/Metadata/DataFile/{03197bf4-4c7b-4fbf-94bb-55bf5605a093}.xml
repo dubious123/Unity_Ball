@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{03197bf4-4c7b-4fbf-94bb-55bf5605a093}">
+		<property name="assetPath">
+			<value>Resources/Sound/Fmos/Metadata/Return/{3b75b020-6c76-4f79-a88f-43128399a8f7}.xml</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{af707b61-2d40-4699-afc9-bceaf0683e23}</destination>
+		</relationship>
+	</object>
+</objects>

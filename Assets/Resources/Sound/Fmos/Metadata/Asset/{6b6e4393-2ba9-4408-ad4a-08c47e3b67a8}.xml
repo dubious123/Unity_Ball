@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{6b6e4393-2ba9-4408-ad4a-08c47e3b67a8}">
+		<property name="assetPath">
+			<value>Resources/Sound/Fmos/Metadata/EncodingSetting/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{af707b61-2d40-4699-afc9-bceaf0683e23}</destination>
+		</relationship>
+	</object>
+</objects>

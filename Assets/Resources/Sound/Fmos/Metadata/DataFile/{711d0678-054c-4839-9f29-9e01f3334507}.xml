@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{711d0678-054c-4839-9f29-9e01f3334507}">
+		<property name="assetPath">
+			<value>Resources/Sound/Fmos/Metadata/EffectPresetFolder/{efd4056d-c5d8-4932-99d6-cb148750e248}.xml.meta</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{af707b61-2d40-4699-afc9-bceaf0683e23}</destination>
+		</relationship>
+	</object>
+</objects>

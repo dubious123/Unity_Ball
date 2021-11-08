@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{7dcafe69-a04b-4f94-b8fc-67dbdd5af3e4}">
+		<property name="assetPath">
+			<value>Resources/Sound/Fmos/Fmos.fspro</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{af707b61-2d40-4699-afc9-bceaf0683e23}</destination>
+		</relationship>
+	</object>
+</objects>

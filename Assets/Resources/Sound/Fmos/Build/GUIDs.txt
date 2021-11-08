@@ -1,0 +1,7 @@
+{70a5222e-d225-4ccb-afb4-2c4fa346b6e4} bank:/Master
+{e8b802fa-a35e-0089-29fd-a6b152b5b07c} bank:/Master.strings
+{07bb0018-ffde-4326-a9d3-06e4edb18a3a} bus:/
+{3b75b020-6c76-4f79-a88f-43128399a8f7} bus:/Reverb
+{dc7ab015-70d7-45b0-a8d2-b77ad4f6a24c} event:/Ball/Bounce
+{1c1c67bc-d052-44e5-ace2-ef0581a6b5ff} event:/Ball/Death
+{f817fca7-c1bb-4ad7-a354-2e823d9a58ef} event:/Coin/Coin

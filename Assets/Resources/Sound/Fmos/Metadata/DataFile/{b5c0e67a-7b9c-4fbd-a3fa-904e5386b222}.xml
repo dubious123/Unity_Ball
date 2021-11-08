@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="DataFile" id="{b5c0e67a-7b9c-4fbd-a3fa-904e5386b222}">
+		<property name="assetPath">
+			<value>Resources/Sprites/DeadEffect/FX001_03.png</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{af707b61-2d40-4699-afc9-bceaf0683e23}</destination>
+		</relationship>
+	</object>
+</objects>
