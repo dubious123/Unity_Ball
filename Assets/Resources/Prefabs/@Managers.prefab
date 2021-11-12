@@ -322,6 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5be9b87ce5d1aa4bab68c3bc81fe067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Popup_Canvas: {fileID: 8954351343498314458, guid: 8c3ff4b5129474d4693418744c8fd009, type: 3}
   Popup_Restart: {fileID: 8067209248910730240, guid: 9118503a47d02ce4988106471337b64a, type: 3}
   Popup_Menu: {fileID: 7177535727857689679, guid: 8ad873584819563428e96e205f8a514f, type: 3}
   Popup_ResumeCounter: {fileID: 5898319240691888933, guid: 5b7ae694906ff5f44a1a1d1f5bb2ed1f, type: 3}

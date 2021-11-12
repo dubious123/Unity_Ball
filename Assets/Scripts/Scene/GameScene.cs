@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GameScene : BaseScene
 {
-    [SerializeField] Ball _Ball;
     public override void Init()
     {
         base.Init();
+        Managers.GameMgr.StartGame();
         Managers.InputMgr._EscapeStartedEvent.AddListener(()=>Managers.UIMgr.ShowMenu());
         Debug.Log("GameStart");
     }

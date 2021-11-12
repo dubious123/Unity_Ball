@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PrefabManager : MonoBehaviour
 {
+    public GameObject Popup_Canvas;
     public GameObject Popup_Restart;
     public GameObject Popup_Menu;
     public GameObject Popup_ResumeCounter;

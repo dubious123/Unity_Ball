@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    Vector3 _dir;
     [SerializeField] float _H_Speed;
+    [SerializeField] float _V_Speed;
     [SerializeField] float _Bounce;
-    [SerializeField] GUI _GUI;
     [SerializeField] Rigidbody2D _RigidBody;
     [SerializeField] Ball_Effect _Effect;
+   
     RaycastHit2D hit;
     RaycastHit2D hit2;
     RaycastHit2D hit3;
@@ -18,10 +20,11 @@ public class Ball : MonoBehaviour
     private void Start()
     {
         rayCol = Color.red;
-        Managers.InputMgr._OnRightPressedEvent.AddListener(()=>StartMoving(new Vector3(1,0)));
-        Managers.InputMgr._OnRightCanceledEvent.AddListener(CancelMoving);
-        Managers.InputMgr._OnLeftPressedEvent.AddListener(() => StartMoving(new Vector3(-1, 0)));
-        Managers.InputMgr._OnLeftCanceledEvent.AddListener(CancelMoving);
+        _dir = new Vector3();
+        Managers.InputMgr._OnRightPressedEvent.AddListener(()=>_dir += new Vector3(_V_Speed, 0));
+        Managers.InputMgr._OnRightCanceledEvent.AddListener(() => _dir += new Vector3(-_V_Speed, 0));
+        Managers.InputMgr._OnLeftPressedEvent.AddListener(() => _dir += new Vector3(-_V_Speed, 0));
+        Managers.InputMgr._OnLeftCanceledEvent.AddListener(() => _dir += new Vector3(_V_Speed, 0));
     }
     private void FixedUpdate()
     {
@@ -33,27 +36,12 @@ public class Ball : MonoBehaviour
         else if (hit2.collider != null) downGo = hit2.collider.gameObject;
         else if (hit3.collider != null) downGo = hit3.collider.gameObject;
         else downGo = null;
+        transform.Translate(_dir * Time.deltaTime * _H_Speed);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject != downGo) return;
         _RigidBody.velocity = new Vector2(_RigidBody.velocity.x,_Bounce);
-    }
-    void StartMoving(Vector3 dir)
-    {
-        _GUI.enabled = true;
-        _GUI.GUIEvent.AddListener(()=>Move(dir));
-    }
-    void CancelMoving()
-    {
-        _RigidBody.velocity = new Vector2(0, _RigidBody.velocity.y);
-        _GUI.GUIEvent.RemoveAllListeners();
-        _GUI.enabled = false;
-    }
-    void Move(Vector3 dir)
-    {
-        Vector3 delta = dir * Time.deltaTime * _H_Speed;
-        transform.Translate(delta);
     }
     public void PerformDeath()
     {
