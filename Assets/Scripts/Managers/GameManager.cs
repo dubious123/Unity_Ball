@@ -27,7 +27,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Managers.InputMgr.EnableBallMove();
     }
-
+    public bool CheckWinCondition()
+    {
+        return false;
+    }
     internal void Clear()
     {
     }
