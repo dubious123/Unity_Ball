@@ -1,15 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Goal : MonoBehaviour
 {
-    void Start()
+
+    [SerializeField] Image _ProgressBar;
+    [SerializeField] GameObject _Lock;
+    [SerializeField] GameObject _UnLock;
+    bool _winCondition = false;
+    public void UpdateGoal(float percentage)
     {
-        
+        Debug.Log(percentage);
+        _ProgressBar.fillAmount = percentage;
+        if (percentage == 1)
+        {
+            _Lock.SetActive(false);
+            _UnLock.SetActive(true);
+            _winCondition = true;
+        } 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Goal");
+        if (collider.gameObject.tag != "Player" || !_winCondition) return;
+        Managers.GameMgr.PlayerWin();
     }
 }

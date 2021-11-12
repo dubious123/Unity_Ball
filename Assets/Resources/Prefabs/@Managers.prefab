@@ -43,7 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9cd05af883189945be2a30d72aa0a7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _GamePopup: {fileID: 0}
 --- !u!1 &8161966434953434473
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,6 +147,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _InteractionCanceledEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _EscapeStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _EscapeCanceledEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &8161966435548860718
@@ -318,6 +323,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Popup_Restart: {fileID: 8067209248910730240, guid: 9118503a47d02ce4988106471337b64a, type: 3}
+  Popup_Menu: {fileID: 7177535727857689679, guid: 8ad873584819563428e96e205f8a514f, type: 3}
+  Popup_ResumeCounter: {fileID: 5898319240691888933, guid: 5b7ae694906ff5f44a1a1d1f5bb2ed1f, type: 3}
 --- !u!1 &8161966436575480479
 GameObject:
   m_ObjectHideFlags: 0

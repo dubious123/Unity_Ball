@@ -11,6 +11,8 @@ public class Ball : MonoBehaviour
     [SerializeField] Rigidbody2D _RigidBody;
     [SerializeField] Ball_Effect _Effect;
     RaycastHit2D hit;
+    RaycastHit2D hit2;
+    RaycastHit2D hit3;
     GameObject downGo;
     Color rayCol;
     private void Start()
@@ -24,9 +26,13 @@ public class Ball : MonoBehaviour
     private void FixedUpdate()
     {
         hit = Physics2D.Raycast(transform.position, Vector2Int.down, 1f);
+        hit2 = Physics2D.Raycast(transform.position + new Vector3(-0.5f,0), Vector2Int.down, 1f);
+        hit3 = Physics2D.Raycast(transform.position + new Vector3(0.5f,0), Vector2Int.down, 1f);
         Debug.DrawRay(transform.position, Vector3Int.down , rayCol);
-        if (hit.collider == null) return;
-        downGo = hit.collider.gameObject;
+        if (hit.collider != null) downGo = hit.collider.gameObject;
+        else if (hit2.collider != null) downGo = hit2.collider.gameObject;
+        else if (hit3.collider != null) downGo = hit3.collider.gameObject;
+        else downGo = null;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

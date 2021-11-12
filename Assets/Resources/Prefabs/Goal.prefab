@@ -258,6 +258,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2323c29d177d4c34696bb3cdcd987416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ProgressBar: {fileID: 8136162103481116981}
+  _Lock: {fileID: 4086675864379072502}
+  _UnLock: {fileID: 2169460737730192175}
 --- !u!1 &8136162103481116983
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +331,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.627
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 2
   m_UseSpriteMesh: 0

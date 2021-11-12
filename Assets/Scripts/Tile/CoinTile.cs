@@ -20,11 +20,16 @@ public class CoinTile : MonoBehaviour
     {
         if (collision.gameObject == player)
         {
-            Destroy(gameObject);
+            Managers.ResourceMgr.Destroy(gameObject);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         
+    }
+    private void OnDestroy()
+    {
+        if (!gameObject.scene.isLoaded) return;
+        Managers.GameMgr.UpdateGoal();
     }
 }
