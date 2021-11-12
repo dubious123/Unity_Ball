@@ -27,4 +27,6 @@ public class DisposableTile : MonoBehaviour
             Managers.ResourceMgr.Destroy(gameObject);
         }
     }
+
+
 }

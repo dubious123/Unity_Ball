@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - PopupCanvas
+  - Star
+  - Goal
   layers:
   - Default
   - TransparentFX

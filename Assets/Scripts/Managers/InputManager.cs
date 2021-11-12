@@ -13,9 +13,12 @@ public class InputManager : MonoBehaviour
     public UnityEvent _OnLeftCanceledEvent = new UnityEvent();
     public UnityEvent _InteractionStartedEvent = new UnityEvent();
     public UnityEvent _InteractionCanceledEvent = new UnityEvent();
+    public UnityEvent _EscapeStartedEvent = new UnityEvent();
+    public UnityEvent _EscapeCanceledEvent = new UnityEvent();
     InputAction _onRightPressed;
     InputAction _onLeftPressed;
     InputAction _onInteractionPressed;
+    InputAction _onEscapePressed;
     private void Awake()
     {
         Init();
@@ -25,12 +28,16 @@ public class InputManager : MonoBehaviour
         _onRightPressed = _PlayerInput.actions["OnRightPressed"];
         _onLeftPressed = _PlayerInput.actions["OnLeftPressed"];
         _onInteractionPressed = _PlayerInput.actions["Interaction"];
+        _onEscapePressed = _PlayerInput.actions["Escape"];
         _onRightPressed.started += OnRightPressedStarted;
         _onRightPressed.canceled += OnRightPressedCanceled;
         _onLeftPressed.started += OnLeftPressedStarted;
         _onLeftPressed.canceled += OnLeftPressedCanceled;
         _onInteractionPressed.started += OnInteractionStarted;
-        _onInteractionPressed.canceled += OnInteractionCanceld;
+        _onInteractionPressed.canceled += OnInteractionCanceled;
+        _onEscapePressed.started += OnEscapeStarted;
+        _onEscapePressed.canceled += OnEscapeCanceld;
+
     }
     void OnRightPressedStarted(InputAction.CallbackContext context)
     {
@@ -52,9 +59,17 @@ public class InputManager : MonoBehaviour
     {
         _InteractionStartedEvent.Invoke();
     }
-    void OnInteractionCanceld(InputAction.CallbackContext context)
+    void OnInteractionCanceled(InputAction.CallbackContext context)
     {
         _InteractionCanceledEvent.Invoke();
+    }
+    void OnEscapeStarted(InputAction.CallbackContext context)
+    {
+        _EscapeStartedEvent.Invoke();
+    }
+    void OnEscapeCanceld(InputAction.CallbackContext context)
+    {
+        _EscapeCanceledEvent.Invoke();
     }
     public void DisableBallMove()
     {

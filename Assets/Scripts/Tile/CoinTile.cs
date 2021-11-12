@@ -26,4 +26,9 @@ public class CoinTile : MonoBehaviour
             Managers.ResourceMgr.Destroy(gameObject);
         }
     }
+    private void OnDestroy()
+    {
+        if (!gameObject.scene.isLoaded) return;
+        Managers.GameMgr.UpdateGoal();
+    }
 }

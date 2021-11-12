@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Managers : MonoBehaviour
 {
+    public static bool IsAllSceneClosing { get { return _instance is null; } }
     public static Managers _instance;
     public static Managers Instance { get { Init(); return _instance; } }
 
@@ -30,19 +31,17 @@ public class Managers : MonoBehaviour
     }
     static void Init()
     {
-        if (_instance == null)
-        {
-            GameObject go = Instantiate(Resources.Load<GameObject>("Prefabs/@Managers"));
-            go.name = "@Managers";
-            _instance = go.GetComponent<Managers>();
-        }
+        if (_instance != null) return;
+        GameObject go = Instantiate(Resources.Load<GameObject>("Prefabs/@Managers"));
+        go.name = "@Managers";
+        _instance = go.GetComponent<Managers>();
         _instance._GameMgr.Init();
         _instance._PrefabMgr.Init();
         _instance._ResourceMgr.Init();
         _instance._UIMgr.Init();
         _instance._PoolMgr.Init();
         _instance._CameraMgr.Init();
-        _instance._InputMgr.Clear();
+        _instance._InputMgr.Init();
     }
     public static void Clear()
     {

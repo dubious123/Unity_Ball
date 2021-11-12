@@ -4,4 +4,5 @@
 {3b75b020-6c76-4f79-a88f-43128399a8f7} bus:/Reverb
 {dc7ab015-70d7-45b0-a8d2-b77ad4f6a24c} event:/Ball/Bounce
 {1c1c67bc-d052-44e5-ace2-ef0581a6b5ff} event:/Ball/Death
+{0f6fafd1-e50e-4504-9e0d-516b41e4b5bf} event:/Ball/New Event
 {f817fca7-c1bb-4ad7-a354-2e823d9a58ef} event:/Coin/Coin

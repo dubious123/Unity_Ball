@@ -14,13 +14,26 @@ public class UIManager : MonoBehaviour
     {
         GamePopup = GameObject.FindGameObjectWithTag("PopupCanvas");
     }
-    public void ShowPopup(GameObject popup)
+    public GameObject ShowPopup(GameObject popup)
     {
-        Managers.ResourceMgr.Instantiate(popup, GamePopup.transform).name = popup.name;
+        GameObject go = Managers.ResourceMgr.Instantiate(popup, GamePopup.transform);
+        go.name = popup.name;
+        return go;
     }
     public void HidePopup(GameObject original)
     {
         Managers.ResourceMgr.Destroy(GamePopup.transform.Find(original.name).gameObject);      
+    }
+    public void ShowMenu()
+    {
+        ShowPopup(Managers.PrefabMgr.Popup_Menu);
+        Managers.GameMgr.PauseGame();
+        Managers.InputMgr._EscapeStartedEvent.RemoveAllListeners();
+        Managers.InputMgr._EscapeCanceledEvent.AddListener(() =>
+        {
+            Managers.InputMgr._EscapeStartedEvent.AddListener(() => HidePopup(Managers.PrefabMgr.Popup_Menu));
+            Managers.InputMgr._EscapeCanceledEvent.RemoveAllListeners();
+        });
     }
     internal void Clear()
     {
