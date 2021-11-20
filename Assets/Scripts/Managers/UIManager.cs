@@ -5,24 +5,31 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    GameObject GamePopup;
+    GameObject _popupCanvas;
+    GameObject PopupCanvas
+    {
+        get 
+        {
+            if (_popupCanvas is null) _popupCanvas = Managers.ResourceMgr.Instantiate(Managers.PrefabMgr.Popup_Canvas);
+            return _popupCanvas; 
+        } 
+    }
     private void Awake()
     {
         Init();
     }
     public void Init()
     {
-        GamePopup = GameObject.FindGameObjectWithTag("PopupCanvas");
     }
     public GameObject ShowPopup(GameObject popup)
     {
-        GameObject go = Managers.ResourceMgr.Instantiate(popup, GamePopup.transform);
+        GameObject go = Managers.ResourceMgr.Instantiate(popup, PopupCanvas.transform);
         go.name = popup.name;
         return go;
     }
     public void HidePopup(GameObject original)
     {
-        Managers.ResourceMgr.Destroy(GamePopup.transform.Find(original.name).gameObject);      
+        Managers.ResourceMgr.Destroy(PopupCanvas.transform.Find(original.name).gameObject);      
     }
     public void ShowMenu()
     {

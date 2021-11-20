@@ -10,12 +10,16 @@ public class GameManager : MonoBehaviour
     public static bool IsPaused = false;
     int _starCount;
     float _currentStarCount;
-    Goal _goal;
+    Goal _goal { get; set; }
     private void Awake()
     {
         Init();
     }
     public void Init()
+    {
+
+    }
+    public void StartGame()
     {
         _starCount = FindObjectOfType<Grid>().transform.GetChild(0).GetComponentsInChildren<CoinTile>().Length;
         _currentStarCount = _starCount;
