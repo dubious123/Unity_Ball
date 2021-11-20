@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 3979815377767702403}
   m_Layer: 5
   m_Name: Goal
-  m_TagString: Untagged
+  m_TagString: Goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -261,6 +261,7 @@ MonoBehaviour:
   _ProgressBar: {fileID: 8136162103481116981}
   _Lock: {fileID: 4086675864379072502}
   _UnLock: {fileID: 2169460737730192175}
+  Next: 0000000000000000
 --- !u!1 &8136162103481116983
 GameObject:
   m_ObjectHideFlags: 0
