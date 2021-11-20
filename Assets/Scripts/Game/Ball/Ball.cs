@@ -40,7 +40,7 @@ public class Ball : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject != downGo) return;
+        if (collision.gameObject != downGo || _RigidBody.velocity.y > 0) return;
         _RigidBody.velocity = new Vector2(_RigidBody.velocity.x,_Bounce);
         downGo.GetComponent<BaseBlock>()?.Perform();
     }

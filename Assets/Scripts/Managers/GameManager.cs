@@ -1,7 +1,10 @@
 using MEC;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +13,8 @@ public class GameManager : MonoBehaviour
     public static bool IsPaused = false;
     int _starCount;
     float _currentStarCount;
+    string _savePath;
+    Progress _gameProgress;
     Goal _goal { get; set; }
     private void Awake()
     {
@@ -17,6 +22,8 @@ public class GameManager : MonoBehaviour
     }
     public void Init()
     {
+        _savePath = Application.persistentDataPath + "/Progress.json";
+        if(File.Exists(_savePath)) File.Delete(_savePath);
 
     }
     public void StartGame()
@@ -30,8 +37,9 @@ public class GameManager : MonoBehaviour
         Managers.UIMgr.ShowPopup(Managers.PrefabMgr.Popup_Restart);
         Managers.InputMgr._InteractionStartedEvent.AddListener(RestartLevel);
     }
-    public void PlayerWin()
+    public void PlayerWin(int[] next)
     {
+        UpdateProgress(next[0],next[1]);
         //StaticClass.CrossSceneInformation = "testtest";
         StaticClass.MainMenuStatus = true;
         SceneManager.LoadScene("MainMenu");
@@ -72,6 +80,33 @@ public class GameManager : MonoBehaviour
         float startTime = Time.realtimeSinceStartup;
         while (Time.realtimeSinceStartup - startTime < waitTime) yield return 0f;
         yield break;
+    }
+    public void UpdateProgress(int world, int map)
+    {
+        if (!File.Exists(_savePath))
+        {
+            File.WriteAllText(_savePath, JsonConvert.SerializeObject(new Progress()));
+        }
+        JObject jo = Managers.DataMgr.GetJObject(_savePath);
+        jo["World"].Replace(world);
+        jo["Map"].Replace(map);
+        Debug.Log(jo);
+
+        if (!File.Exists(_savePath))
+        {
+            File.WriteAllText(_savePath, JsonConvert.SerializeObject(new Progress()));
+        }
+        File.WriteAllText(_savePath, jo.ToString());
+    }
+    public Progress GetProgress()
+    {
+        _gameProgress = _gameProgress == null?  new Progress() : _gameProgress;
+        if (!File.Exists(_savePath)) 
+        {
+            File.WriteAllText(_savePath, JsonConvert.SerializeObject(new Progress()));
+        }
+        Managers.DataMgr.PopulateObject(Managers.DataMgr.GetJson(_savePath), _gameProgress);
+        return _gameProgress;
     }
     internal void Clear()
     {

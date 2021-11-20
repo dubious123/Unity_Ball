@@ -9,6 +9,7 @@ public class Goal : MonoBehaviour
     [SerializeField] Image _ProgressBar;
     [SerializeField] GameObject _Lock;
     [SerializeField] GameObject _UnLock;
+    public int[] Next = new int[2];
     bool _winCondition = false;
     public void UpdateGoal(float percentage)
     {
@@ -24,6 +25,6 @@ public class Goal : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag != "Player" || !_winCondition) return;
-        Managers.GameMgr.PlayerWin();
+        Managers.GameMgr.PlayerWin(Next);
     }
 }

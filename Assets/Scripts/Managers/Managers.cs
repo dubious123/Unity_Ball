@@ -16,6 +16,7 @@ public class Managers : MonoBehaviour
     public PoolManager _PoolMgr;
     public CameraManager _CameraMgr;
     public InputManager _InputMgr;
+    public DataManagers _DataMgr;
 
     public static GameManager GameMgr { get { return Instance._GameMgr; } }
     public static PrefabManager PrefabMgr { get { return Instance._PrefabMgr; } }
@@ -24,6 +25,7 @@ public class Managers : MonoBehaviour
     public static PoolManager PoolMgr { get { return Instance._PoolMgr; } }
     public static CameraManager CameraMgr { get { return Instance._CameraMgr; } }
     public static InputManager InputMgr { get { return Instance._InputMgr; } }
+    public static DataManagers DataMgr { get { return Instance._DataMgr; } }
 
     private void Awake()
     {
@@ -42,6 +44,7 @@ public class Managers : MonoBehaviour
         _instance._PoolMgr.Init();
         _instance._CameraMgr.Init();
         _instance._InputMgr.Init();
+        _instance._DataMgr.Init();
     }
     public static void Clear()
     {
@@ -52,6 +55,7 @@ public class Managers : MonoBehaviour
         _instance._PoolMgr.Clear();
         _instance._CameraMgr.Clear();
         _instance._InputMgr.Clear();
+        _instance._DataMgr.Clear();
         Timing.KillCoroutines();
         _instance = null;
     }

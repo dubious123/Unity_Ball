@@ -7,6 +7,6 @@ public class Map1Button : MonoBehaviour
 {
     public void Map1Btn()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("World 1");
     }
 }

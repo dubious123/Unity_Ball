@@ -37,7 +37,7 @@ public class Boundary : MonoBehaviour
         _pos = _Ball.position;
         Debug.DrawLine(_nw, _ne, Color.green);
         Debug.DrawLine(_ne, _se, Color.green);
-        Debug.DrawLine(_se, _sw, Color.green);
+        Debug.DrawLine(_se, _sw, Color.green);  
         Debug.DrawLine(_sw, _nw, Color.green);
         if (_pos.x <= _Xmin || _pos.x >= _Xmax || _pos.y <= _Ymin || _pos.y >= _Ymax)
         {
