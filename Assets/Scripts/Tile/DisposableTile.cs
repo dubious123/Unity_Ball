@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisposableTile : MonoBehaviour
+public class DisposableTile : BaseBlock
 {
     GameObject player;
     // Start is called before the first frame update
@@ -14,19 +14,11 @@ public class DisposableTile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject == player)
-        {
-            Managers.ResourceMgr.Destroy(gameObject);
-        }
     }
 
+    public override void Perform()
+    {
+        Managers.ResourceMgr.Destroy(gameObject);
 
+    }
 }

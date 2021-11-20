@@ -42,6 +42,7 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject != downGo) return;
         _RigidBody.velocity = new Vector2(_RigidBody.velocity.x,_Bounce);
+        downGo.GetComponent<BaseBlock>()?.Perform();
     }
     public void PerformDeath()
     {
@@ -50,5 +51,9 @@ public class Ball : MonoBehaviour
         _RigidBody.velocity = new Vector2(0f,0f);
         _Effect.PlayDeath();
         Managers.GameMgr.PlayerDead();
+    }
+    public bool IsAbove(Vector3 pos)
+    {
+        return transform.position.y >= pos.y + 0.5f && _RigidBody.velocity.y <= 0;
     }
 }
