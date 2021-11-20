@@ -23,5 +23,13 @@ public class DynamicTile : BaseBlock
         player.GetComponent<Ball>().PerformDeath();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject == player)
+        {
+            player.GetComponent<Ball>().PerformDeath();
+        }
+    }
+
 
 }
