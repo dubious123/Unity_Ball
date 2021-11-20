@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     }
     public void PlayerWin()
     {
+        //StaticClass.CrossSceneInformation = "testtest";
+        StaticClass.MainMenuStatus = true;
         SceneManager.LoadScene("MainMenu");
     }
     public void RestartLevel()

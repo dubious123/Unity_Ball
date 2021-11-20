@@ -8,8 +8,6 @@ public class MainMenuScene : BaseScene
 
     public Canvas StartCanvas;
     public Canvas MapCanvas;
-    public CanvasGroup StartScreen;
-    public CanvasGroup MapScreen;
 
     private void Awake()
     {
@@ -22,14 +20,16 @@ public class MainMenuScene : BaseScene
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
 
-
-        StartScreen.alpha = 1;
-        StartCanvas.enabled = true;
-
-        MapScreen.alpha = 0;
-        MapCanvas.enabled = false;
+        if (StaticClass.MainMenuStatus == false) {
+            StartCanvas.enabled = true;
+            MapCanvas.enabled = false;
+        }
+        else
+        {
+            StartCanvas.enabled = false;
+            MapCanvas.enabled = true;
+        }
     }
     public override void Clear()
     {
@@ -41,15 +41,11 @@ public class MainMenuScene : BaseScene
     }
     public void StartScreen_Active()
     {
-        StartScreen.alpha = 1;
-        StartScreen.interactable = true;
         StartCanvas.enabled = true;
         MapCanvas.enabled = false;
     }
     public void MapScreen_Active()
     {
-        MapScreen.alpha = 1;
-        MapScreen.interactable = true;
         MapCanvas.enabled = true;
         StartCanvas.enabled = false;
     }

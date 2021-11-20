@@ -8,7 +8,7 @@ public class DynamicTile_horizontal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        v = Vector2.right * 0.01f;
+        v = Vector2.right * 0.005f;
     }
 
     // Update is called once per frame

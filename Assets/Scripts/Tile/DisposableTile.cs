@@ -5,10 +5,12 @@ using UnityEngine;
 public class DisposableTile : BaseBlock
 {
     GameObject player;
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -18,7 +20,14 @@ public class DisposableTile : BaseBlock
 
     public override void Perform()
     {
-        Managers.ResourceMgr.Destroy(gameObject);
+        //anim.Play("Anim");
+        //Managers.ResourceMgr.Destroy(gameObject);
+        Destroy(gameObject, 10 * Time.deltaTime);
 
+    }
+    void EndPlay()
+    {
+        Managers.ResourceMgr.Destroy(gameObject);
+        //Destroy(gameObject, 10 * Time.deltaTime);
     }
 }
