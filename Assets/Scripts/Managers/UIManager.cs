@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     {
         get 
         {
-            if (_popupCanvas is null) _popupCanvas = Managers.ResourceMgr.Instantiate(Managers.PrefabMgr.Popup_Canvas);
+            if (_popupCanvas == null) _popupCanvas = Managers.ResourceMgr.Instantiate(Managers.PrefabMgr.Popup_Canvas);
             return _popupCanvas; 
         } 
     }
