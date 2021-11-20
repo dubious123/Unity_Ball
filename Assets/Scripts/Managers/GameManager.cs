@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     }
     public void PlayerWin()
     {
-
+        SceneManager.LoadScene("MainMenu");
     }
     public void RestartLevel()
     {
