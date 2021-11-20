@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     {
         _starCount = FindObjectOfType<Grid>().transform.GetChild(0).GetComponentsInChildren<CoinTile>().Length;
         _currentStarCount = _starCount;
-        _goal = GameObject.FindGameObjectWithTag("Goal").GetComponent<Goal>();
+        _goal = GameObject.FindGameObjectWithTag("Goal")?.GetComponent<Goal>();
     }
     public void PlayerDead()
     {
