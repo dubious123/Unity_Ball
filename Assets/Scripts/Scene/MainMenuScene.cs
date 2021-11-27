@@ -24,6 +24,7 @@ public class MainMenuScene : BaseScene
         if (StaticClass.MainMenuStatus == false) {
             StartCanvas.enabled = true;
             MapCanvas.enabled = false;
+            StaticClass.MainMenuStatus = true;
         }
         else
         {
