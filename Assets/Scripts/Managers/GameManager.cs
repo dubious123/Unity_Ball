@@ -41,7 +41,6 @@ public class GameManager : MonoBehaviour
     {
         UpdateProgress(next[0],next[1]);
         //StaticClass.CrossSceneInformation = "testtest";
-        StaticClass.MainMenuStatus = true;
         SceneManager.LoadScene("MainMenu");
     }
     public void RestartLevel()

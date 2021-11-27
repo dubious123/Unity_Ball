@@ -15,7 +15,9 @@ public class Ball : MonoBehaviour
     RaycastHit2D hit;
     RaycastHit2D hit2;
     RaycastHit2D hit3;
-    GameObject downGo;
+    GameObject downGo1;
+    GameObject downGo2;
+    GameObject downGo3;
     Color rayCol;
     private void Start()
     {
@@ -29,20 +31,23 @@ public class Ball : MonoBehaviour
     private void FixedUpdate()
     {
         hit = Physics2D.Raycast(transform.position, Vector2Int.down, 1f);
-        hit2 = Physics2D.Raycast(transform.position + new Vector3(-0.5f,0), Vector2Int.down, 1f);
-        hit3 = Physics2D.Raycast(transform.position + new Vector3(0.5f,0), Vector2Int.down, 1f);
+        hit2 = Physics2D.Raycast(transform.position + new Vector3(-0.175f,0), Vector2Int.down, 1f);
+        hit3 = Physics2D.Raycast(transform.position + new Vector3(0.175f,0), Vector2Int.down, 1f);
         Debug.DrawRay(transform.position, Vector3Int.down , rayCol);
-        if (hit.collider != null) downGo = hit.collider.gameObject;
-        else if (hit2.collider != null) downGo = hit2.collider.gameObject;
-        else if (hit3.collider != null) downGo = hit3.collider.gameObject;
-        else downGo = null;
+        Debug.DrawRay(transform.position + new Vector3(-0.175f, 0), Vector3Int.down , rayCol);
+        Debug.DrawRay(transform.position + new Vector3(0.175f, 0), Vector3Int.down, rayCol);
+        downGo1 = hit.collider == null? null :  hit.collider.gameObject;
+        downGo2 = hit2.collider == null? null :  hit2.collider.gameObject;
+        downGo3 = hit3.collider == null ? null : hit3.collider.gameObject;
         transform.Translate(_dir * Time.deltaTime * _H_Speed);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject != downGo || _RigidBody.velocity.y > 0) return;
+        if ((collision.gameObject != downGo1 && collision.gameObject != downGo2 && collision.gameObject != downGo3) || _RigidBody.velocity.y > 0) return;
         _RigidBody.velocity = new Vector2(_RigidBody.velocity.x,_Bounce);
-        downGo.GetComponent<BaseBlock>()?.Perform();
+        downGo1?.GetComponent<BaseBlock>()?.Perform();
+        downGo2?.GetComponent<BaseBlock>()?.Perform();
+        downGo3?.GetComponent<BaseBlock>()?.Perform();
     }
     public void PerformDeath()
     {
