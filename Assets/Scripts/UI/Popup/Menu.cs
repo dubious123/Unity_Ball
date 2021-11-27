@@ -4,12 +4,13 @@ using UnityEngine;
 using MEC;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
     private void OnDestroy()
     {
-        if (!gameObject.scene.isLoaded) return;
+        if (!gameObject.scene.isLoaded) {Managers.GameMgr.ResumeGame(); return;}
         Managers.InputMgr._EscapeStartedEvent?.RemoveAllListeners();
         Managers.InputMgr._EscapeStartedEvent?.AddListener(() => 
         {
@@ -34,5 +35,13 @@ public class Menu : MonoBehaviour
         yield return Timing.WaitUntilDone(Managers.GameMgr._ResumeGame(1f).RunCoroutine());
         Managers.UIMgr.HidePopup(Managers.PrefabMgr.Popup_ResumeCounter);
         yield break;
+    }
+    public void BackToMainMenu(int worldNum = 1)
+    {
+        SceneManager.LoadScene($"World {worldNum}");
+    }
+    public void BackToGame()
+    {
+        Managers.ResourceMgr.Destroy(gameObject);
     }
 }

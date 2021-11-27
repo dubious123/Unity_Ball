@@ -11,7 +11,7 @@ public class Ball : MonoBehaviour
     [SerializeField] float _Bounce;
     [SerializeField] Rigidbody2D _RigidBody;
     [SerializeField] Ball_Effect _Effect;
-   
+    float _duration;
     RaycastHit2D hit;
     RaycastHit2D hit2;
     RaycastHit2D hit3;
@@ -30,6 +30,12 @@ public class Ball : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if(Mathf.Abs(_RigidBody.velocity.y)  <= 0.1f)  _duration += Time.deltaTime; 
+        if(_duration > 0.15f)
+        {
+            _duration = 0;
+            _RigidBody.velocity = new Vector2(_RigidBody.velocity.x, _Bounce);
+        }
         hit = Physics2D.Raycast(transform.position, Vector2Int.down, 1f);
         hit2 = Physics2D.Raycast(transform.position + new Vector3(-0.175f,0), Vector2Int.down, 1f);
         hit3 = Physics2D.Raycast(transform.position + new Vector3(0.175f,0), Vector2Int.down, 1f);
@@ -44,11 +50,12 @@ public class Ball : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if ((collision.gameObject != downGo1 && collision.gameObject != downGo2 && collision.gameObject != downGo3) || _RigidBody.velocity.y > 0) return;
-        _RigidBody.velocity = new Vector2(_RigidBody.velocity.x,_Bounce);
-        downGo1?.GetComponent<BaseBlock>()?.Perform();
-        downGo2?.GetComponent<BaseBlock>()?.Perform();
-        downGo3?.GetComponent<BaseBlock>()?.Perform();
+        _RigidBody.velocity = new Vector2(_RigidBody.velocity.x, _Bounce);
+        if (downGo1) { downGo1.GetComponent<BaseBlock>()?.Perform(); return; }
+        if (downGo2) { downGo2.GetComponent<BaseBlock>()?.Perform(); return; }
+        if (downGo3) { downGo3.GetComponent<BaseBlock>()?.Perform(); return; }
     }
+
     public void PerformDeath()
     {
         Managers.InputMgr.DisableBallMove();

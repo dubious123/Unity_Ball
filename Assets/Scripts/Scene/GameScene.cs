@@ -8,7 +8,8 @@ public class GameScene : BaseScene
     {
         base.Init();
         Managers.GameMgr.StartGame();
-        Managers.InputMgr._EscapeStartedEvent.AddListener(()=>Managers.UIMgr.ShowMenu());
+        Managers.InputMgr._EscapeStartedEvent.RemoveAllListeners();
+        Managers.InputMgr._EscapeStartedEvent.AddListener(() => Managers.UIMgr.ShowMenu());
         Debug.Log("GameStart");
     }
     public override void Clear()
