@@ -32,6 +32,29 @@ public class DynamicTile : MonoBehaviour
             transform.position = _Start.position;
         }
     }
+<<<<<<< HEAD
+=======
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public override void Perform()
+    {
+        //Debug.Log("ccc");
+        player.GetComponent<Ball>().PerformDeath();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject == player)
+        {
+            player.GetComponent<Ball>().PerformDeath();
+        }
+    }
 
 
+>>>>>>> 12b7721097aa35503ec735d5e5948519de066911
 }
